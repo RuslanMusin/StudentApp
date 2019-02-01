@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/main_navigation" app:startDestination="@id/workFragment">
+
+    <fragment android:id="@+id/studentFragment" android:name="com.example.studentapp.ui.profile.StudentFragment"
+              android:label="StudentFragment"/>
+    <fragment android:id="@+id/themeFragment" android:name="com.example.studentapp.ui.theme.ThemeFragment"
+              android:label="ThemeFragment"/>
+    <fragment android:id="@+id/workFragment" android:name="com.example.studentapp.ui.work.WorkFragment"
+              android:label="WorkFragment"/>
+</navigation>

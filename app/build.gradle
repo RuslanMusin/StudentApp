@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
 
 
 android {
@@ -36,6 +37,8 @@ ext {
     gson = "2.8.2"
     okhttp = "3.9.1"
     retrofit = "2.3.0"
+    nav_version = "1.0.0-alpha11"
+
 }
 
 
@@ -85,4 +88,6 @@ dependencies {
     //Custom Views
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version" // use -ktx for Kotlin
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version" // use -ktx for Kotlin
 }
