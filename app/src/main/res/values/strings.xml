@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">StudentApp</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
+    <!--Новое приложение-->
+    <string name="menu_profile">Профиль</string>
+    <string name="menu_students">Студенты</string>
+    <string name="menu_works">Курсовые</string>
+    <string name="menu_themes">Темы</string>
+    <string name="sign_up">Зарегистрироваться</string>
 </resources>
