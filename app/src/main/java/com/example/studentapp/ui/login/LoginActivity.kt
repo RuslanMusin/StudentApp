@@ -6,9 +6,10 @@ import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.studentapp.R
+import com.example.studentapp.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity: MvpAppCompatActivity(), LoginView {
+class LoginActivity: BaseActivity(), LoginView {
 
     @InjectPresenter
     lateinit var loginPresenter: LoginPresenter

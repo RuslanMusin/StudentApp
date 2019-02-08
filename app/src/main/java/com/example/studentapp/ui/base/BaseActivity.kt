@@ -8,9 +8,10 @@ import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
 import dagger.android.support.HasSupportFragmentInjector
 import android.support.v7.app.AppCompatActivity
+import com.arellomobile.mvp.MvpAppCompatActivity
 
 
-abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
+abstract class BaseActivity : MvpAppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var fragmentInjector: DispatchingAndroidInjector<Fragment>
