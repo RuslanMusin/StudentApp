@@ -14,46 +14,49 @@ import com.example.studentapp.ui.base.BaseFragment
 
 
 class MyFragment : BaseFragment(), MyView {
-
-    @Inject
-    lateinit var presenter: MyPresenter
-
-    private var text: TextView? = null
-
-    var someId: Int = 0
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        someId = arguments!!.getInt(ID_KEY)
-        super.onCreate(savedInstanceState)
-    }
-
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment, container, false)
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        text = view.findViewById(R.id.text)
-        presenter!!.doSometing()
-
-    }
-
     override fun onResult(result: String) {
-        text!!.text = result
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    companion object {
-        private val ID_KEY = "ID"
+    /* @Inject
+     lateinit var presenter: MyPresenter
+
+     private var text: TextView? = null
+
+     var someId: Int = 0
+
+     override fun onCreate(savedInstanceState: Bundle?) {
+         someId = arguments!!.getInt(ID_KEY)
+         super.onCreate(savedInstanceState)
+     }
 
 
-        fun create(id: Int): MyFragment {
-            val myFragment = MyFragment()
-            val args = Bundle()
-            args.putInt(ID_KEY, id)
-            myFragment.arguments = args
-            return myFragment
-        }
-    }
+     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+         return inflater.inflate(R.layout.fragment, container, false)
+
+     }
+
+     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+         super.onViewCreated(view, savedInstanceState)
+         text = view.findViewById(R.id.text)
+         presenter!!.doSometing()
+
+     }
+
+     override fun onResult(result: String) {
+         text!!.text = result
+     }
+
+     companion object {
+         private val ID_KEY = "ID"
+
+
+         fun create(id: Int): MyFragment {
+             val myFragment = MyFragment()
+             val args = Bundle()
+             args.putInt(ID_KEY, id)
+             myFragment.arguments = args
+             return myFragment
+         }
+     }*/
 }

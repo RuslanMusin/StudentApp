@@ -15,16 +15,26 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.example.studentapp.R
 import com.example.studentapp.model.user.Curator
 import com.example.studentapp.ui.base.BaseFragment
+import com.example.studentapp.ui.test.structure.presenter.MyPresenter
+import com.example.studentapp.ui.test.structure.repo.Repository
 import com.example.studentapp.utils.Const.TAG
+import com.example.studentapp.utils.Const.TAG_LOG
 import com.example.studentapp.utils.Const.USER_DATA_PREFERENCES
 import com.example.studentapp.utils.Const.USER_PASSWORD
 import com.example.studentapp.utils.Const.USER_USERNAME
 import kotlinx.android.synthetic.main.fragment_login.*
+import javax.inject.Inject
 
 class LoginFragment : BaseFragment(), LoginFragmentView, View.OnClickListener {
 
+    @Inject
+    lateinit var presenter: MyPresenter
+
     @InjectPresenter
     lateinit var loginFragmentPresenter: LoginFragmentPresenter
+
+    @Inject
+    lateinit var repository: Repository
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_login, container, false)
@@ -37,6 +47,8 @@ class LoginFragment : BaseFragment(), LoginFragmentView, View.OnClickListener {
     }
 
     private fun initViews() {
+        Log.d(TAG_LOG, "frag value = ${repository.value}")
+        Log.d(TAG_LOG, "frag pres value = ${presenter.getVal()}")
         setListeners()
     }
 

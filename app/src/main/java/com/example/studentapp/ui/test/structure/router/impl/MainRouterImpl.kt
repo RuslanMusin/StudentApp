@@ -12,6 +12,6 @@ constructor(activity: MainActivity) : BaseRouterImpl<MainActivity>(activity), Ma
 
 
     override fun showSomeScreen(id: Int) {
-        replaceFragment(R.id.content, MyFragment.create(id))
+        /*replaceFragment(R.id.content, MyFragment.create(id))*/
     }
 }

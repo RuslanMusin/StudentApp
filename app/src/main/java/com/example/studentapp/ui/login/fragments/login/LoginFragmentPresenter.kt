@@ -8,21 +8,34 @@ import com.example.studentapp.api.services.CuratorService
 import com.example.studentapp.model.user.Curator
 import com.example.studentapp.repository.auth.AuthRepository
 import com.example.studentapp.repository.curator.CuratorRepository
+import com.example.studentapp.ui.base.App
 import com.example.studentapp.ui.base.BasePresenter
+import com.example.studentapp.ui.test.structure.repo.Repository
 import com.example.studentapp.utils.Const
+import com.example.studentapp.utils.Const.TAG_LOG
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 @InjectViewState
 class LoginFragmentPresenter: BasePresenter<LoginFragmentView>() {
 
+    init {
+        App.sAppComponent.inject(this)
+    }
+
     val compositeDisposable: CompositeDisposable = CompositeDisposable()
+
+    @Inject
+    lateinit var repository: Repository
 
     @Inject
     lateinit var authRepository: AuthRepository
 
     @Inject
     lateinit var curatorRepository: CuratorRepository
+
+    @Inject
+    lateinit var authService: AuthService
 
     fun signIn(email: String, password: String) {
         Log.d(Const.TAG_LOG, "signIn:$email")
@@ -33,6 +46,10 @@ class LoginFragmentPresenter: BasePresenter<LoginFragmentView>() {
 //        viewState.showProgressDialog(R.string.progress_message)
 
         val curator = Curator(email, password)
+
+        Log.d(TAG_LOG, "value = ${repository.value}")
+
+        authService.login(curator)
 
         val disposable = authRepository.login(curator).subscribe { res ->
             val response = res?.response()

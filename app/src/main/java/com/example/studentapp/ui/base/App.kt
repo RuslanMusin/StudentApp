@@ -7,6 +7,9 @@ import javax.inject.Inject
 import dagger.android.HasActivityInjector
 import android.app.Application
 import com.example.studentapp.di.components.DaggerAppComponent
+import com.example.studentapp.di.components.AppComponent
+
+
 
 
 class App : Application(), HasActivityInjector {
@@ -16,15 +19,20 @@ class App : Application(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
 
-        DaggerAppComponent
+        sAppComponent = DaggerAppComponent
             .builder()
             .context(this)
             .build()
-            .inject(this)
+
+        sAppComponent.inject(this)
 
     }
 
     override fun activityInjector(): AndroidInjector<Activity>? {
         return dispatchingAndroidInjector
+    }
+
+    companion object {
+        lateinit var sAppComponent: AppComponent
     }
 }

@@ -24,7 +24,7 @@ abstract class MyFragmentModule {
         @Provides
         @Named("someId")
         fun provideSomeId(myFragment: MyFragment): Int {
-            return myFragment.someId
+            return 0
         }
     }
 
